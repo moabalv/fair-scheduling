@@ -1,0 +1,4 @@
+/.pytest_cache
+/tests
+/tests.ipynb
+/tests.py
