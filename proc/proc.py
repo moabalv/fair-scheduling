@@ -12,5 +12,5 @@ class Proc:
         self.waiting_time += 1
 
     def __lt__(self, other):
-        return self.cpu_time < other.cpu_time
+        return self.virtual_runtime < other.virtual_runtime
 

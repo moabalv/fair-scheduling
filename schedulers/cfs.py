@@ -50,6 +50,7 @@ class CFS:
         if self.running != None:
             self.update_waiting_time()
             self.quantum += 1
+            self.running.virtual_runtime += 1
             self.running.cpu_time += 1
             self.clock += 1
 
@@ -74,7 +75,7 @@ class CFS:
                   self.running.response_time = self.running.waiting_time
 
            # Schedulling the lowest run time
-           elif temp.cpu_time < self.running.cpu_time:
+           elif temp.virtual_runtime < self.running.virtual_runtime:
                heapq.heappush(self.ready_queue, self.running)
                self.running = temp
                if self.running.response_time == None:
@@ -85,7 +86,17 @@ class CFS:
            
     def insert_process(self, proc):
         self.processes.append(proc)
+        proc.virtual_runtime = self.get_lowest_virtual_runtime()
         heapq.heappush(self.ready_queue, proc)
+
+    def get_lowest_virtual_runtime(self):
+        if (len(self.ready_queue) > 0):
+            lowest = self.ready_queue[0].virtual_runtime
+        else:
+            lowest = 0
+        if (self.running != None and self.running.virtual_runtime < lowest):
+            lowest = self.running.virtual_runtime
+        return lowest
 
     def update_waiting_time(self):
         for proc in self.ready_queue:

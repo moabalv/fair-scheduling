@@ -15,7 +15,7 @@ ggplot(timeline, aes(x = t, fill = factor(pid))) +
 procs <- read.csv("results/RRProc.csv")
 rr_slowdown <- (procs$waiting_time + procs$cpu_time) / procs$burning_time
 
-cfs <- read.csv("results/CFSProc2.csv")
+cfs <- read.csv("results/CFSProc3.csv")
 cfs_slowdown <- (cfs$waiting_time + cfs$cpu_time) / cfs$burning_time
 
 fifo <- read.csv("results/FifoProc.csv")
