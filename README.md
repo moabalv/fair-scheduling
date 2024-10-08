@@ -22,5 +22,5 @@ Para realizar a simulação dos algoritmos de escalonamento (Round Robin, CFS, F
 1. Gere a carga de processos com o script `generate_data.R`
 2. Abra o arquivo `simulate.ipynb` no Jupyter Notebook.
 3. Execute as células para obter os resultados das simulações no algoritmos desejados.
-4. Gere gráficos dos resultados com o script `plot.R`.
+4. Gere gráficos dos resultados de turnaround time e response time com o script `plot.R`.
 ---
